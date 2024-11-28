@@ -1,0 +1,129 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para las secciones de Buses */
+  .container-fluid.mt-4 {
+    margin-top: 40px;
+  }
+  
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h1.text-primary {
+    font-size: 2rem;
+    color: #0056b3;
+  }
+  
+  button.btn.btn-success {
+    background-color: #7abf5a; /* Color consistente verde */
+    color: white;
+  }
+  
+  button.btn.btn-success i {
+    margin-right: 5px;
+  }
+  
+  /* Tabla de buses */
+  .table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-striped tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .table td {
+    color: #555;
+  }
+  
+  .table td a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .table td a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilo para íconos en la tabla */
+  .table td i {
+    font-size: 1.5rem;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  /* Estilo para el modal */
+  .modal-header.bg-primary {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .modal-body {
+    background-color: #f8f9fa;
+  }
+  
+  .modal-footer.bg-light {
+    background-color: #f1f1f1;
+  }
+  
+  .modal-footer .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .modal-footer .btn-success {
+    background-color: #7abf5a; /* Color consistente verde */
+    color: white;
+  }
+  
+  /* Estilo para el formulario en el modal */
+  .modal-body .form-label {
+    color: #0056b3;
+  }
+  
+  .modal-body .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .modal-body .form-select {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para los botones en el modal */
+  .modal-footer .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  

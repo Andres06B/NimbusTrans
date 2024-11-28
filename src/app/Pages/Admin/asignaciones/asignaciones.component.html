@@ -1,0 +1,104 @@
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="text-primary">
+        <i class="bi bi-card-list"></i> Asignaciones
+      </h1>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarAsignacion">
+        <i class="bi bi-plus-circle"></i> Agregar Asignación
+      </button>
+    </div>
+  
+    <!-- Tabla de asignaciones -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ruta</th>
+          <th>Bus</th>
+          <th>Conductor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tbodyAsignaciones">
+        <tr data-id="1">
+          <td>1</td>
+          <td>Ruta 1</td>
+          <td>Bus ABC123</td>
+          <td>Juan Pérez</td>
+          <td>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAgregarAsignacion" onclick="editarAsignacion(1)">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" onclick="eliminarAsignacion(1)">
+              <i class="bi bi-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+        <tr data-id="2">
+          <td>2</td>
+          <td>Ruta 2</td>
+          <td>Bus XYZ789</td>
+          <td>Ana Gómez</td>
+          <td>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAgregarAsignacion" onclick="editarAsignacion(2)">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" onclick="eliminarAsignacion(2)">
+              <i class="bi bi-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal para agregar/editar asignación -->
+  <div class="modal fade" id="modalAgregarAsignacion" tabindex="-1" aria-labelledby="modalAgregarAsignacionLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-light">
+          <h5 class="modal-title" id="modalAgregarAsignacionLabel">
+            <i class="bi bi-plus-circle"></i> Agregar/Editar Asignación
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light text-dark">
+          <form id="formAsignacion">
+            <div class="mb-3">
+              <label for="rutaAsignacion" class="form-label">Ruta</label>
+              <select class="form-select" id="rutaAsignacion" required>
+                <option value="ruta1">Ruta 1</option>
+                <option value="ruta2">Ruta 2</option>
+                <!-- Agregar más rutas según sea necesario -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="busAsignacion" class="form-label">Bus</label>
+              <select class="form-select" id="busAsignacion" required>
+                <option value="bus1">Bus ABC123</option>
+                <option value="bus2">Bus XYZ789</option>
+                <!-- Agregar más buses según sea necesario -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="conductorAsignacion" class="form-label">Conductor</label>
+              <select class="form-select" id="conductorAsignacion" required>
+                <option value="conductor1">Juan Pérez</option>
+                <option value="conductor2">Ana Gómez</option>
+                <!-- Agregar más conductores según sea necesario -->
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+          <button type="button" class="btn btn-success" onclick="guardarAsignacion()">
+            <i class="bi bi-check-circle"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

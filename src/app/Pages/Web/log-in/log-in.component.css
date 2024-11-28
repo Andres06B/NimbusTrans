@@ -1,0 +1,87 @@
+body {
+    background: linear-gradient(135deg, #000428, #004e92);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    height: 100vh;
+  }
+  
+  .container {
+    color: white;
+  }
+  
+  .card {
+    width: 28rem;
+    border-radius: 20px;
+    background-color: #101010; /* Fondo negro */
+    color: #e0e0e0; /* Texto gris claro */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    animation: slideIn 1s ease;
+  }
+  
+  .card h3 {
+    font-weight: bold;
+  }
+  
+  .input-group-text {
+    background-color: #1c1c1c; /* Fondo oscuro */
+    border: none;
+    border-radius: 50px;
+  }
+  
+  .input-group-text i {
+    color: #6c757d;
+  }
+  
+  .form-control {
+    border: none;
+    border-radius: 50px;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: white;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    border-color: #004e92;
+  }
+  
+  .btn-primary {
+    background-color: #004e92; /* Azul noche */
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #001f3f;
+    transform: scale(1.05);
+  }
+  
+  .text-center a {
+    color: #004e92; /* Azul noche */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .text-center a:hover {
+    color: #001f3f;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 90%;
+    }
+  }
+  

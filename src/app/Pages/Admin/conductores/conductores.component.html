@@ -1,0 +1,85 @@
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="text-primary">
+        <i class="bi bi-person"></i> Conductores
+      </h1>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarConductor">
+        <i class="bi bi-plus-circle"></i> Agregar Conductor
+      </button>
+    </div>
+  
+    <!-- Tabla de conductores -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre Completo</th>
+          <th>DNI</th>
+          <th>Licencia</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Juan Pérez</td>
+          <td>12345678</td>
+          <td>ABC123</td>
+          <td><span class="badge bg-success">Activo</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Gómez</td>
+          <td>87654321</td>
+          <td>XYZ789</td>
+          <td><span class="badge bg-danger">Inactivo</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal para agregar conductor -->
+  <div class="modal fade" id="modalAgregarConductor" tabindex="-1" aria-labelledby="modalAgregarConductorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-light">
+          <h5 class="modal-title" id="modalAgregarConductorLabel">
+            <i class="bi bi-plus-circle"></i> Agregar Nuevo Conductor
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light text-dark">
+          <form>
+            <div class="mb-3">
+              <label for="nombreConductor" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="nombreConductor" placeholder="Ej: Juan Pérez" required>
+            </div>
+            <div class="mb-3">
+              <label for="dniConductor" class="form-label">DNI</label>
+              <input type="text" class="form-control" id="dniConductor" placeholder="Ej: 12345678" required>
+            </div>
+            <div class="mb-3">
+              <label for="licenciaConductor" class="form-label">Número de Licencia</label>
+              <input type="text" class="form-control" id="licenciaConductor" placeholder="Ej: ABC123" required>
+            </div>
+            <div class="mb-3">
+              <label for="estadoConductor" class="form-label">Estado</label>
+              <select class="form-select" id="estadoConductor" required>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+          <button type="button" class="btn btn-success">
+            <i class="bi bi-check-circle"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

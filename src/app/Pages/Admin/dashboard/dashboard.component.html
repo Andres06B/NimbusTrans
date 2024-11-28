@@ -1,0 +1,57 @@
+<div>
+  <!-- Navbar superior -->
+  <nav class="navbar-top">
+    <h3>
+      <i class="bi bi-cloud"></i> NimbusTrans
+
+    </h3>
+    <button class="btn-salir" routerLink="/home">
+      <i class="bi bi-box-arrow-right"></i> Salir
+    </button>
+  </nav>
+
+  <div class="d-flex">
+    <!-- Barra lateral fija -->
+    <nav class="sidebar">
+      <h3>
+        <i></i> Menú
+      </h3>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" (click)="mostrarSeccion('principal')">
+            <i class="bi bi-house-door"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="mostrarSeccion('rutas')">
+            <i class="bi bi-map"></i> Rutas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="mostrarSeccion('buses')">
+            <i class="bi bi-bus-front"></i> Buses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="mostrarSeccion('conductores')">
+            <i class="bi bi-person"></i> Conductores
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="mostrarSeccion('asignaciones')">
+            <i class="bi bi-card-list"></i> Asignaciones
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <div class="container-fluid">
+      <app-principio *ngIf="seccionActiva === 'principal'"></app-principio>
+      <app-rutas *ngIf="seccionActiva === 'rutas'"></app-rutas>
+      <app-buses *ngIf="seccionActiva === 'buses'"></app-buses>
+      <app-conductores *ngIf="seccionActiva === 'conductores'"></app-conductores>
+      <app-asignaciones *ngIf="seccionActiva === 'asignaciones'"></app-asignaciones>
+    </div>
+  </div>
+</div>
