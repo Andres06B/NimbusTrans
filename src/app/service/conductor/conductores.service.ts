@@ -25,10 +25,10 @@ export class ConductoresService {
   }
 
   updateConductor(conductor: Conductores): Observable<Conductores>{
-    return this.http.put<Conductores>(this.url, conductor);
+    return this.http.put<Conductores>(`${this.url}/${conductor.id}`, conductor);
   }
 
   deleteConductor(id: number): Observable<Conductores>{
-    return this.http.delete<Conductores>(this.url + '/' + id);
+    return this.http.delete<Conductores>(`${this.url}/${id}`);
   }
 }

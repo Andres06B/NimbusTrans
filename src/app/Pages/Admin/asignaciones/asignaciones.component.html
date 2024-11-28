@@ -8,8 +8,8 @@
     </button>
   </div>
 
-  <table class="table table-striped">
-    <thead>
+  <table class="table table-striped table-hover align-middle">
+    <thead class="table-primary text-dark">
       <tr>
         <th>#</th>
         <th>Ruta</th>
@@ -76,7 +76,7 @@
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
           <i class="bi bi-x-circle"></i> Cancelar
         </button>
-        <button type="button" class="btn btn-success" (click)="guardarAsignacion()">
+        <button type="button" class="btn btn-success" (click)="guardarAsignacion()" data-bs-dismiss="modal">
           <i class="bi" [ngClass]="isEditMode ? 'bi-pencil' : 'bi-check-circle'"></i>
           {{ isEditMode ? 'Actualizar' : 'Guardar' }}
         </button>
