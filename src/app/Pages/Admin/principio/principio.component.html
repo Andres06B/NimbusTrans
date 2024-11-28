@@ -1,6 +1,6 @@
 <div class="dashboard">
   <h2 class="section-title" style="color:#007bff">Dashboard</h2>
-  
+
   <!-- Tarjetas -->
   <div class="cards-container">
     <div class="card-item">
@@ -8,7 +8,7 @@
         <div class="card-body">
           <i class="bi bi-map icon"></i>
           <h5 class="card-title">Rutas Activas</h5>
-          <p class="card-text">0</p>
+          <p class="card-text">{{ rutasActivas }}</p>
         </div>
       </div>
     </div>
@@ -17,8 +17,8 @@
       <div class="card">
         <div class="card-body">
           <i class="bi bi-bus-front icon"></i>
-          <h5 class="card-title" >Buses Registrados</h5>
-          <p class="card-text">0</p>
+          <h5 class="card-title">Buses Registrados</h5>
+          <p class="card-text">{{ busesRegistrados }}</p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="card-body">
           <i class="bi bi-person icon"></i>
           <h5 class="card-title">Conductores</h5>
-          <p class="card-text">0</p>
+          <p class="card-text">{{ conductores }}</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="card-body">
           <i class="bi bi-currency-dollar icon"></i>
           <h5 class="card-title">Balance</h5>
-          <p class="card-text">$0.00</p>
+          <p class="card-text">${{ balance | number: '1.2-2' }}</p>
         </div>
       </div>
     </div>
@@ -57,23 +57,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2024-11-27</td>
-          <td>Registro de nuevo bus</td>
-          <td>Detalles del registro</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2024-11-26</td>
-          <td>Nuevo conductor asignado</td>
-          <td>Detalles del conductor</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>2024-11-25</td>
-          <td>Ruta activa actualizada</td>
-          <td>Detalles de la ruta</td>
+        <tr *ngFor="let actividad of actividades">
+          <td>{{ actividad.id }}</td>
+          <td>{{ actividad.fecha }}</td>
+          <td>{{ actividad.actividad }}</td>
+          <td>{{ actividad.detalles }}</td>
         </tr>
       </tbody>
     </table>
