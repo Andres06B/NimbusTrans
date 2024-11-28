@@ -20,19 +20,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>ABC-123</td>
-          <td>2020</td>
-          <td>45</td>
-          <td>Activo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>XYZ-456</td>
-          <td>2018</td>
-          <td>50</td>
-          <td>Inactivo</td>
+        <tr *ngFor="let bus of BusesList">
+          <td>{{bus.id}}</td>
+          <td>{{bus.placa}}</td>
+          <td>{{bus.modelo}}</td>
+          <td>{{bus.capacidad}}</td>
+          <td>{{bus.estado}}</td>
         </tr>
       </tbody>
     </table>
@@ -49,25 +42,24 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form [formGroup]="BusForm" (submit)="crearBus()">
             <div class="mb-3">
               <label for="placaBus" class="form-label">Placa</label>
-              <input type="text" class="form-control" id="placaBus" placeholder="Ej: ABC-123" required>
+              <input type="text" class="form-control" formControlName="placa" id="placaBus" placeholder="Ej: ABC-123" required>
             </div>
             <div class="mb-3">
               <label for="modeloBus" class="form-label">Modelo</label>
-              <input type="number" class="form-control" id="modeloBus" placeholder="Ej: 2020" required>
+              <input type="text" class="form-control" formControlName="modelo" id="modeloBus" placeholder="Ej: 2020" required>
             </div>
             <div class="mb-3">
               <label for="capacidadBus" class="form-label">Capacidad</label>
-              <input type="number" class="form-control" id="capacidadBus" placeholder="Ej: 45" required>
+              <input type="number" class="form-control" formControlName="capacidad" id="capacidadBus" placeholder="Ej: 45" required>
             </div>
             <div class="mb-3">
               <label for="estadoBus" class="form-label">Estado</label>
-              <select class="form-select" id="estadoBus" required>
-                <option value="" disabled selected>Seleccionar estado</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
+              <select class="form-select" formControlName="estado" id="estadoBus" required>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
               </select>
             </div>
           </form>
@@ -76,7 +68,7 @@
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
             <i class="bi bi-x-circle"></i> Cancelar
           </button>
-          <button type="button" class="btn btn-success">
+          <button (click)="crearBus()" type="submit" class="btn btn-success">
             <i class="bi bi-check-circle"></i> Guardar
           </button>
         </div>

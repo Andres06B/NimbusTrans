@@ -20,19 +20,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Juan Pérez</td>
-          <td>12345678</td>
-          <td>ABC123</td>
-          <td><span class="badge bg-success">Activo</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Ana Gómez</td>
-          <td>87654321</td>
-          <td>XYZ789</td>
-          <td><span class="badge bg-danger">Inactivo</span></td>
+        <tr *ngFor = "let conductor of ConductoresList">
+          <td>{{conductor.id}}</td>
+          <td>{{conductor.nombre}}</td>
+          <td>{{conductor.cedula}}</td>
+          <td>{{conductor.num_licencia}}</td>
+          <td><span class="badge bg-success">{{conductor.estado}}</span></td>
         </tr>
       </tbody>
     </table>
@@ -49,22 +42,22 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-light text-dark">
-          <form>
+          <form [formGroup]="ConductorForm" (submit)="crearConductor(ConductorForm.value)">
             <div class="mb-3">
               <label for="nombreConductor" class="form-label">Nombre Completo</label>
-              <input type="text" class="form-control" id="nombreConductor" placeholder="Ej: Juan Pérez" required>
+              <input type="text" class="form-control" formControlName="nombre" placeholder="Ej: Juan Pérez" required>
             </div>
             <div class="mb-3">
               <label for="dniConductor" class="form-label">DNI</label>
-              <input type="text" class="form-control" id="dniConductor" placeholder="Ej: 12345678" required>
+              <input type="text" class="form-control" formControlName="cedula" placeholder="Ej: 12345678" required>
             </div>
             <div class="mb-3">
               <label for="licenciaConductor" class="form-label">Número de Licencia</label>
-              <input type="text" class="form-control" id="licenciaConductor" placeholder="Ej: ABC123" required>
+              <input type="number" class="form-control" formControlName="num_licencia" placeholder="Ej: ABC123" required>
             </div>
             <div class="mb-3">
               <label for="estadoConductor" class="form-label">Estado</label>
-              <select class="form-select" id="estadoConductor" required>
+              <select class="form-select" formControlName="estado" required>
                 <option value="activo">Activo</option>
                 <option value="inactivo">Inactivo</option>
               </select>
@@ -75,7 +68,7 @@
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
             <i class="bi bi-x-circle"></i> Cancelar
           </button>
-          <button type="button" class="btn btn-success">
+          <button (click)="crearConductor(ConductorForm.value)" type="submit" class="btn btn-success">
             <i class="bi bi-check-circle"></i> Guardar
           </button>
         </div>
