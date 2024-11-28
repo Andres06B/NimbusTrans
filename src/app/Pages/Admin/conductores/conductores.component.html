@@ -9,14 +9,15 @@
     </div>
   
     <!-- Tabla de conductores -->
-    <table class="table table-striped">
-      <thead>
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-primary text-dark">
         <tr>
           <th>#</th>
           <th>Nombre Completo</th>
           <th>DNI</th>
           <th>Licencia</th>
           <th>Estado</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,19 @@
           <td>{{conductor.cedula}}</td>
           <td>{{conductor.num_licencia}}</td>
           <td><span class="badge bg-success">{{conductor.estado}}</span></td>
+          <td>
+            <button
+            class="btn btn-warning btn-sm me-2 text-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAgregarConductor"
+            (click)="editarConductor(conductor.id)"
+            >
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm me-2" (click)="eliminarConductor(conductor.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button> 
+          </td>
         </tr>
       </tbody>
     </table>
@@ -37,12 +51,12 @@
       <div class="modal-content">
         <div class="modal-header bg-primary text-light">
           <h5 class="modal-title" id="modalAgregarConductorLabel">
-            <i class="bi bi-plus-circle"></i> Agregar Nuevo Conductor
+            <i class="bi bi-plus-circle"></i> {{isEditMode ? 'Editar Conductor' : 'Agregar Nuevo Conductor'}}
           </h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-light text-dark">
-          <form [formGroup]="ConductorForm" (submit)="crearConductor(ConductorForm.value)">
+          <form [formGroup]="ConductorForm">
             <div class="mb-3">
               <label for="nombreConductor" class="form-label">Nombre Completo</label>
               <input type="text" class="form-control" formControlName="nombre" placeholder="Ej: Juan Pérez" required>
@@ -68,8 +82,9 @@
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
             <i class="bi bi-x-circle"></i> Cancelar
           </button>
-          <button (click)="crearConductor(ConductorForm.value)" type="submit" class="btn btn-success">
-            <i class="bi bi-check-circle"></i> Guardar
+          <button (click)="guardarConductor()" type="submit" class="btn btn-success" data-bs-dismiss="modal">
+            <i class="bi" [ngClass]="isEditMode ? 'bi-pencil' : 'bi-check-circle'"></i>
+            {{isEditMode ? 'Actualizar' : 'Guardar'}}
           </button>
         </div>
       </div>

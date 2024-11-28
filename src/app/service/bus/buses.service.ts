@@ -25,10 +25,10 @@ export class BusesService {
   }
 
   updateBus(bus: Buses): Observable<Buses>{
-    return this.http.put<Buses>(this.url, bus);
+    return this.http.put<Buses>(`${this.url}/${bus.id}`, bus);
   }
 
   deleteBus(id: number): Observable<Buses>{
-    return this.http.delete<Buses>(this.url + '/' + id);
+    return this.http.delete<Buses>(`${this.url}/${id}`);
   }
 }

@@ -24,11 +24,11 @@ export class RutasService {
     return this.http.post<Rutas>(this.url, ruta);
   }
 
-  updateRuta(ruta: Rutas): Observable<Rutas>{
-    return this.http.put<Rutas>(this.url, ruta);
+  updateRuta(ruta: Rutas): Observable<Rutas> {
+    return this.http.put<Rutas>(`${this.url}/${ruta.id}`, ruta);
   }
-
-  deleteRuta(id: number): Observable<Rutas>{
-    return this.http.delete<Rutas>(this.url + '/' + id);
+  
+  deleteRuta(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`);
   }
 }
